@@ -45,4 +45,8 @@ export const useHomeStyles = tss.create(({ theme }) => ({
     width: "35%",
     paddingLeft: "2em",
   },
+  highlightCards: {
+    padding: "1em 1em 4em 1em",
+    gap: "3em",
+  },
 }));
