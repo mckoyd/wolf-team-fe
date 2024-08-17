@@ -6,6 +6,7 @@ import { ReactComponent as HeroBg } from "../assets/images/bg-pattern-home-2.svg
 import { ReactComponent as HighlightsBg } from "../assets/images/bg-pattern-home-3.svg";
 import { ReactComponent as TestimonialsTopBg } from "../assets/images/bg-pattern-home-4-about-3.svg";
 import { ReactComponent as TestimonialBottomBg } from "../assets/images/bg-pattern-home-5.svg";
+
 import HighlightCard from "../components/HighlightCard";
 import {
   highlightCards,
@@ -19,6 +20,8 @@ import {
   testimonialSectionTitleSpan,
 } from "../config/testimonialCard.config";
 import TestimonialCard from "../components/TestimonialCard";
+import ReadySection from "../components/ReadySection";
+import Footer from "../components/Footer";
 
 const Home: React.FC = () => {
   const { classes } = useHomeStyles();
@@ -41,6 +44,7 @@ const Home: React.FC = () => {
 
   return (
     <Grid container className={classes.homeContainer}>
+      {/* Hero Section */}
       <Grid container direction="column" className={classes.heroContainer}>
         <Typography variant="h2" className={classes.heroTitle}>
           {heroTitle}{" "}
@@ -52,6 +56,7 @@ const Home: React.FC = () => {
       </Grid>
       <HeroBg className={classes.heroBg} />
 
+      {/* Highlights Section */}
       <Grid
         container
         direction="column"
@@ -86,51 +91,55 @@ const Home: React.FC = () => {
             )
           )}
         </Grid>
+      </Grid>
 
+      {/* Testimonials Section */}
+      <Grid
+        container
+        direction="column"
+        className={classes.testimonialsSection}
+      >
+        <TestimonialsTopBg className={classes.testimonialsTopBgIcon} />
         <Grid
           container
           direction="column"
-          className={classes.testimonialsSection}
+          className={classes.testimonialsContainer}
         >
-          <TestimonialsTopBg className={classes.testimonialsTopBgIcon} />
+          <Typography variant="h2" className={classes.testimonialSectionTitle}>
+            {testimonialSectionTitle}{" "}
+            <span className={classes.testimonialSectionTitleSpan}>
+              {testimonialSectionTitleSpan}
+            </span>
+          </Typography>
           <Grid
             container
             direction="column"
-            className={classes.testimonialsContainer}
+            className={classes.testimonialCards}
           >
-            <Typography
-              variant="h2"
-              className={classes.testimonialSectionTitle}
-            >
-              {testimonialSectionTitle}{" "}
-              <span className={classes.testimonialSectionTitleSpan}>
-                {testimonialSectionTitleSpan}
-              </span>
-            </Typography>
-            <Grid
-              container
-              direction="column"
-              className={classes.testimonialCards}
-            >
-              {testimonialCards.map(
-                (
-                  { imageUrl, fullName, jobTitle, description },
-                  index: number
-                ) => (
-                  <TestimonialCard
-                    imageUrl={imageUrl}
-                    fullName={fullName}
-                    jobTitle={jobTitle}
-                    description={description}
-                    key={`${fullName}-${index}`}
-                  />
-                )
-              )}
-            </Grid>
+            {testimonialCards.map(
+              (
+                { imageUrl, fullName, jobTitle, description },
+                index: number
+              ) => (
+                <TestimonialCard
+                  imageUrl={imageUrl}
+                  fullName={fullName}
+                  jobTitle={jobTitle}
+                  description={description}
+                  key={`${fullName}-${index}`}
+                />
+              )
+            )}
           </Grid>
-          <TestimonialBottomBg className={classes.testimonialsBottomBgIcon} />
         </Grid>
+        <TestimonialBottomBg className={classes.testimonialsBottomBgIcon} />
       </Grid>
+
+      {/* Ready Section */}
+      <ReadySection />
+
+      {/* Footer */}
+      <Footer />
     </Grid>
   );
 };
