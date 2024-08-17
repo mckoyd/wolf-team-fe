@@ -20,15 +20,14 @@ export const serializeCard = ({
 };
 
 export const getTestimonialCards = async () => {
-  console.log("host", process.env.BE_HOST);
   try {
     if (process.env.BE_HOST) {
       const { data } = await axios.get(`${process.env.BE_HOST}success-cards`, {
         timeout: 50000,
       });
-      console.log("raw data", data);
+
       const cards = data.map((card: ICardDataResponse) => serializeCard(card));
-      console.log("serialized cards", cards);
+
       return cards;
     }
   } catch (error) {
