@@ -3,6 +3,8 @@ import { GlobalStyles } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
 import Header from "../components/Header";
 import Home from "./Home";
+import About from "./About";
+import Contact from "./Contact";
 
 const App: React.FC = () => {
   return (
@@ -11,8 +13,8 @@ const App: React.FC = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<div>About</div>} />
-        <Route path="/contact" element={<div>Contact</div>} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
   );
