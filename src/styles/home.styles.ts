@@ -72,4 +72,10 @@ export const useHomeStyles = tss.create(({ theme }) => ({
   testimonialsBottomBgIcon: {
     alignSelf: "flex-end",
   },
+  loader: {
+    margin: "3em auto",
+    color: theme.palette.common.lightCoral,
+    width: "5em !important",
+    height: "5em !important",
+  },
 }));

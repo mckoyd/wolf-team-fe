@@ -1,4 +1,4 @@
-import { Divider, Grid, Typography } from "@mui/material";
+import { CircularProgress, Divider, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useHomeStyles } from "../styles/home.styles";
 
@@ -94,46 +94,53 @@ const Home: React.FC = () => {
       </Grid>
 
       {/* Testimonials Section */}
-      <Grid
-        container
-        direction="column"
-        className={classes.testimonialsSection}
-      >
-        <TestimonialsTopBg className={classes.testimonialsTopBgIcon} />
+      {testimonialCards.length === 0 ? (
+        <CircularProgress className={classes.loader} />
+      ) : (
         <Grid
           container
           direction="column"
-          className={classes.testimonialsContainer}
+          className={classes.testimonialsSection}
         >
-          <Typography variant="h2" className={classes.testimonialSectionTitle}>
-            {testimonialSectionTitle}{" "}
-            <span className={classes.testimonialSectionTitleSpan}>
-              {testimonialSectionTitleSpan}
-            </span>
-          </Typography>
+          <TestimonialsTopBg className={classes.testimonialsTopBgIcon} />
           <Grid
             container
             direction="column"
-            className={classes.testimonialCards}
+            className={classes.testimonialsContainer}
           >
-            {testimonialCards.map(
-              (
-                { imageUrl, fullName, jobTitle, description },
-                index: number
-              ) => (
-                <TestimonialCard
-                  imageUrl={imageUrl}
-                  fullName={fullName}
-                  jobTitle={jobTitle}
-                  description={description}
-                  key={`${fullName}-${index}`}
-                />
-              )
-            )}
+            <Typography
+              variant="h2"
+              className={classes.testimonialSectionTitle}
+            >
+              {testimonialSectionTitle}{" "}
+              <span className={classes.testimonialSectionTitleSpan}>
+                {testimonialSectionTitleSpan}
+              </span>
+            </Typography>
+            <Grid
+              container
+              direction="column"
+              className={classes.testimonialCards}
+            >
+              {testimonialCards.map(
+                (
+                  { imageUrl, fullName, jobTitle, description },
+                  index: number
+                ) => (
+                  <TestimonialCard
+                    imageUrl={imageUrl}
+                    fullName={fullName}
+                    jobTitle={jobTitle}
+                    description={description}
+                    key={`${fullName}-${index}`}
+                  />
+                )
+              )}
+            </Grid>
           </Grid>
+          <TestimonialBottomBg className={classes.testimonialsBottomBgIcon} />
         </Grid>
-        <TestimonialBottomBg className={classes.testimonialsBottomBgIcon} />
-      </Grid>
+      )}
 
       {/* Ready Section */}
       <ReadySection />
