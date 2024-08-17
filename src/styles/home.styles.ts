@@ -49,4 +49,27 @@ export const useHomeStyles = tss.create(({ theme }) => ({
     padding: "1em 1em 4em 1em",
     gap: "3em",
   },
+  testimonialsSection: {
+    background: theme.palette.common.deepJungleGreen,
+  },
+  testimonialsTopBgIcon: {},
+  testimonialsContainer: {
+    padding: "3em 1em",
+    justifyContent: "center",
+  },
+  testimonialSectionTitle: {
+    color: theme.palette.common.white,
+    fontSize: "2.25em",
+    textAlign: "center",
+  },
+  testimonialSectionTitleSpan: {
+    color: theme.palette.common.raptureBlue,
+  },
+  testimonialCards: {
+    padding: "4em 1em 1em 1em",
+    gap: "3em",
+  },
+  testimonialsBottomBgIcon: {
+    alignSelf: "flex-end",
+  },
 }));

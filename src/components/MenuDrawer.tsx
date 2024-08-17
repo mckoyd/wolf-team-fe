@@ -39,6 +39,7 @@ const MenuDrawer: React.FC<IMenuDrawer> = ({ isMenuOpen, setIsMenuOpen }) => {
                   setIsMenuOpen(false);
                 }}
                 className={classes.navLinkBtn}
+                key={`${label}-${index}`}
               >
                 <Typography
                   variant="body1"

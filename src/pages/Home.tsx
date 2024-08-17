@@ -1,19 +1,43 @@
 import { Divider, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHomeStyles } from "../styles/home.styles";
 
 import { ReactComponent as HeroBg } from "../assets/images/bg-pattern-home-2.svg";
 import { ReactComponent as HighlightsBg } from "../assets/images/bg-pattern-home-3.svg";
+import { ReactComponent as TestimonialsTopBg } from "../assets/images/bg-pattern-home-4-about-3.svg";
+import { ReactComponent as TestimonialBottomBg } from "../assets/images/bg-pattern-home-5.svg";
 import HighlightCard from "../components/HighlightCard";
 import {
   highlightCards,
   highlightCardTitle,
 } from "../config/highlightCard.config";
-import { IHightlightCard } from "../interfaces";
+import { ICardDataResponse, IHightlightCard } from "../interfaces";
 import { heroSubtitle, heroTitle, heroTitleSpan } from "../config/home.config";
+import {
+  getTestimonialCards,
+  testimonialSectionTitle,
+  testimonialSectionTitleSpan,
+} from "../config/testimonialCard.config";
+import TestimonialCard from "../components/TestimonialCard";
 
 const Home: React.FC = () => {
   const { classes } = useHomeStyles();
+
+  const [testimonialCards, setTestimonialCards] = useState<
+    Pick<
+      ICardDataResponse,
+      "fullName" | "imageUrl" | "jobTitle" | "description"
+    >[]
+  >([]);
+
+  const generateTestimonialCards = async () => {
+    const cards = await getTestimonialCards();
+    setTestimonialCards(cards);
+  };
+
+  useEffect(() => {
+    generateTestimonialCards();
+  }, []);
 
   return (
     <Grid container className={classes.homeContainer}>
@@ -27,6 +51,7 @@ const Home: React.FC = () => {
         </Typography>
       </Grid>
       <HeroBg className={classes.heroBg} />
+
       <Grid
         container
         direction="column"
@@ -60,6 +85,50 @@ const Home: React.FC = () => {
               />
             )
           )}
+        </Grid>
+
+        <Grid
+          container
+          direction="column"
+          className={classes.testimonialsSection}
+        >
+          <TestimonialsTopBg className={classes.testimonialsTopBgIcon} />
+          <Grid
+            container
+            direction="column"
+            className={classes.testimonialsContainer}
+          >
+            <Typography
+              variant="h2"
+              className={classes.testimonialSectionTitle}
+            >
+              {testimonialSectionTitle}{" "}
+              <span className={classes.testimonialSectionTitleSpan}>
+                {testimonialSectionTitleSpan}
+              </span>
+            </Typography>
+            <Grid
+              container
+              direction="column"
+              className={classes.testimonialCards}
+            >
+              {testimonialCards.map(
+                (
+                  { imageUrl, fullName, jobTitle, description },
+                  index: number
+                ) => (
+                  <TestimonialCard
+                    imageUrl={imageUrl}
+                    fullName={fullName}
+                    jobTitle={jobTitle}
+                    description={description}
+                    key={`${fullName}-${index}`}
+                  />
+                )
+              )}
+            </Grid>
+          </Grid>
+          <TestimonialBottomBg className={classes.testimonialsBottomBgIcon} />
         </Grid>
       </Grid>
     </Grid>

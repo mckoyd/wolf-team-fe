@@ -15,3 +15,12 @@ export interface IHightlightCard {
   title: string;
   description: string;
 }
+
+export interface ICardDataResponse {
+  fullName: string;
+  imageUrl: string;
+  jobTitle: string;
+  description: string;
+  __v: string;
+  __id: string;
+}

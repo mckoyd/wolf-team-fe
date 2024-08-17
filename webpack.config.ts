@@ -2,6 +2,7 @@ import path from "path";
 import { Configuration } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
+import Dotenv from "dotenv-webpack";
 
 enum Modes {
   dev = "development",
@@ -80,6 +81,7 @@ const config: Configuration = {
     new CopyPlugin({
       patterns: [{ from: "./public/avatar.ico", to: "" }],
     }),
+    new Dotenv(),
   ],
 };
 
