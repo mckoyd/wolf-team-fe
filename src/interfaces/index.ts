@@ -24,3 +24,11 @@ export interface ICardDataResponse {
   __v: string;
   __id: string;
 }
+
+export interface IHeroSection {
+  heroTitle: string;
+  heroTitleSpan?: string;
+  heroSubtitle: string;
+  HeroBg: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  heroBgOrientation?: string;
+}

@@ -13,7 +13,11 @@ import {
   highlightCardTitle,
 } from "../config/highlightCard.config";
 import { ICardDataResponse, IHightlightCard } from "../interfaces";
-import { heroSubtitle, heroTitle, heroTitleSpan } from "../config/home.config";
+import {
+  homeHeroSubtitle,
+  homeHeroTitle,
+  homeHeroTitleSpan,
+} from "../config/home.config";
 import {
   getTestimonialCards,
   testimonialSectionTitle,
@@ -22,6 +26,7 @@ import {
 import TestimonialCard from "../components/TestimonialCard";
 import ReadySection from "../components/ReadySection";
 import Footer from "../components/Footer";
+import HeroSection from "../components/HeroSection";
 
 const Home: React.FC = () => {
   const { classes } = useHomeStyles();
@@ -45,16 +50,12 @@ const Home: React.FC = () => {
   return (
     <Grid container className={classes.homeContainer}>
       {/* Hero Section */}
-      <Grid container direction="column" className={classes.heroContainer}>
-        <Typography variant="h2" className={classes.heroTitle}>
-          {heroTitle}{" "}
-          <span className={classes.heroTitleSpan}>{heroTitleSpan}</span>
-        </Typography>
-        <Typography variant="body2" className={classes.heroBody}>
-          {heroSubtitle}
-        </Typography>
-      </Grid>
-      <HeroBg className={classes.heroBg} />
+      <HeroSection
+        heroTitle={homeHeroTitle}
+        heroTitleSpan={homeHeroTitleSpan}
+        heroSubtitle={homeHeroSubtitle}
+        HeroBg={HeroBg}
+      />
 
       {/* Highlights Section */}
       <Grid

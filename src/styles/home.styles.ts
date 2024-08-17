@@ -4,27 +4,6 @@ export const useHomeStyles = tss.create(({ theme }) => ({
   homeContainer: {
     background: theme.palette.common.midnightGreen,
   },
-  heroContainer: {
-    padding: "1em",
-    gap: "1em",
-  },
-  heroTitle: {
-    color: theme.palette.common.white,
-    textAlign: "center",
-    fontSize: "2.5em",
-    padding: "0 1em",
-  },
-  heroTitleSpan: {
-    color: theme.palette.common.lightCoral,
-  },
-  heroBody: {
-    color: theme.palette.common.white,
-    textAlign: "center",
-    padding: "0 1em",
-  },
-  heroBg: {
-    margin: "4em auto 0 auto",
-  },
   highlightsContainer: {
     background: theme.palette.common.sacramentoStateGreen,
   },
