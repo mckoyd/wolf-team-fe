@@ -2,7 +2,11 @@ import { CircularProgress, Grid, IconButton, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useAboutStyles } from "../styles/about.styles";
 import HeroSection from "../components/HeroSection";
-import { aboutHeroSubtitle, aboutHeroTitle } from "../config/about.config";
+import {
+  aboutHeroSubtitle,
+  aboutHeroTitle,
+  logos,
+} from "../config/about.config";
 import { ReactComponent as AboutHeroBg } from "../assets/images/bg-pattern-about-1-mobile-nav-1.svg";
 import { ReactComponent as DirectorSectionBg } from "../assets/images/bg-pattern-about-2-contact-1.svg";
 import {
@@ -14,6 +18,8 @@ import DirectorCard from "../components/DirectorCard";
 import { ReactComponent as FacebookIcon } from "../assets/images/icon-facebook.svg";
 import { ReactComponent as TwitterIcon } from "../assets/images/icon-twitter.svg";
 import { ReactComponent as CrossIcon } from "../assets/images/icon-close.svg";
+import { ReactComponent as AboutBottomBg } from "../assets/images/bg-pattern-home-4-about-3.svg";
+import { ReactComponent as ClientsBg } from "../assets/images/bg-pattern-home-3.svg";
 
 const About: React.FC = () => {
   const { classes } = useAboutStyles();
@@ -103,6 +109,30 @@ const About: React.FC = () => {
               <CrossIcon className={classes.crossIcon} />
             </IconButton>
           </Grid>
+        </Grid>
+        <AboutBottomBg className={classes.aboutBottomBg} />
+      </Grid>
+
+      <Grid container direction={"column"} className={classes.clientsSection}>
+        <ClientsBg className={classes.clientsBg} />
+        <Typography
+          variant="h2"
+          fontSize={"2em"}
+          className={classes.clientsSectionTitle}
+        >
+          Some of our clients
+        </Typography>
+        <Grid
+          container
+          direction={"column"}
+          gap="4em"
+          justifyContent={"center"}
+          alignItems={"center"}
+          padding={"0 4em 6em"}
+        >
+          {logos.map(({ logo, name }, index: number) => (
+            <img src={logo} alt={`${name} logo`} className={classes.logoImg} />
+          ))}
         </Grid>
       </Grid>
     </Grid>

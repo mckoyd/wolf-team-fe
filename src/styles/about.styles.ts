@@ -62,4 +62,26 @@ export const useAboutStyles = tss.create(({ theme }) => ({
       fill: theme.palette.common.sacramentoStateGreen,
     },
   },
+  aboutBottomBg: {
+    alignSelf: "flex-end",
+    marginTop: "-3em",
+  },
+  clientsSection: {
+    background: theme.palette.common.sacramentoStateGreen,
+    overflow: "hidden",
+  },
+  clientsBg: {
+    margin: "-9em 0 0 -6.25em",
+  },
+  clientsSectionTitle: {
+    color: theme.palette.common.white,
+    textAlign: "center",
+    marginTop: "-0.35em",
+    marginBottom: "2.5em",
+  },
+  logoImg: {
+    maxWidth: "-webkit-fill-available",
+    width: "auto",
+    height: "auto",
+  },
 }));
