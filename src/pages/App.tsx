@@ -1,6 +1,6 @@
 import React from "react";
 import { GlobalStyles } from "@mui/material";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, ScrollRestoration } from "react-router-dom";
 import Header from "../components/Header";
 import Home from "./Home";
 import About from "./About";
@@ -16,6 +16,7 @@ const App: React.FC = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <ScrollRestoration />
     </div>
   );
 };
