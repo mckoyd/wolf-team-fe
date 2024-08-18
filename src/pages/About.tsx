@@ -133,7 +133,12 @@ const About: React.FC = () => {
           padding={"0 4em 6em"}
         >
           {logos.map(({ logo, name }, index: number) => (
-            <img src={logo} alt={`${name} logo`} className={classes.logoImg} />
+            <img
+              src={logo}
+              alt={`${name} logo`}
+              key={`${name}-${index}`}
+              className={classes.logoImg}
+            />
           ))}
         </Grid>
       </Grid>

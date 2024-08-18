@@ -5,7 +5,6 @@ import { serializeCard } from "./testimonialCard.config";
 export const directorSectionTitle = "Meet the Directors";
 
 export const getDirectorCards = async () => {
-  console.log("getting cards");
   try {
     if (process.env.BE_HOST) {
       const { data } = await axios.get(`${process.env.BE_HOST}director-cards`, {
