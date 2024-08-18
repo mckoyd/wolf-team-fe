@@ -20,6 +20,8 @@ import { ReactComponent as TwitterIcon } from "../assets/images/icon-twitter.svg
 import { ReactComponent as CrossIcon } from "../assets/images/icon-close.svg";
 import { ReactComponent as AboutBottomBg } from "../assets/images/bg-pattern-home-4-about-3.svg";
 import { ReactComponent as ClientsBg } from "../assets/images/bg-pattern-home-3.svg";
+import ReadySection from "../components/ReadySection";
+import Footer from "../components/Footer";
 
 const About: React.FC = () => {
   const { classes } = useAboutStyles();
@@ -135,6 +137,9 @@ const About: React.FC = () => {
           ))}
         </Grid>
       </Grid>
+
+      <ReadySection />
+      <Footer />
     </Grid>
   );
 };
