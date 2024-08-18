@@ -1,4 +1,4 @@
-import { CircularProgress, Grid, Typography } from "@mui/material";
+import { CircularProgress, Grid, IconButton, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useAboutStyles } from "../styles/about.styles";
 import HeroSection from "../components/HeroSection";
@@ -11,6 +11,9 @@ import {
 } from "../config/directorCard.config";
 import { ICardDataResponse } from "../interfaces";
 import DirectorCard from "../components/DirectorCard";
+import { ReactComponent as FacebookIcon } from "../assets/images/icon-facebook.svg";
+import { ReactComponent as TwitterIcon } from "../assets/images/icon-twitter.svg";
+import { ReactComponent as CrossIcon } from "../assets/images/icon-close.svg";
 
 const About: React.FC = () => {
   const { classes } = useAboutStyles();
@@ -76,6 +79,30 @@ const About: React.FC = () => {
               )
             )
           )}
+
+          <Grid
+            container
+            direction="column"
+            className={classes.directorCardContainer}
+          >
+            <Typography variant="h3" className={classes.fullName}>
+              Aden Allan
+            </Typography>
+
+            <Typography variant="body2" className={classes.moreInfo}>
+              “Empowered teams create truly amazing products. Set the north star
+              and let them follow it.”
+            </Typography>
+
+            <Grid container className={classes.iconContainer}>
+              <TwitterIcon />
+              <FacebookIcon />
+            </Grid>
+
+            <IconButton className={classes.crossBtn}>
+              <CrossIcon className={classes.crossIcon} />
+            </IconButton>
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
