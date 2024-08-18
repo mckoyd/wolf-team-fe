@@ -6,6 +6,7 @@ import { useHeroSectionStyles } from "../styles/heroSection.styles";
 const HeroSection: React.FC<IHeroSection> = ({
   heroTitle,
   heroTitleSpan,
+  heroHighlightedTitle,
   heroSubtitle,
   HeroBg,
   heroBgOrientation,
@@ -21,15 +22,24 @@ const HeroSection: React.FC<IHeroSection> = ({
             <span className={classes.heroTitleSpan}>{heroTitleSpan}</span>
           )}
         </Typography>
-        <Typography variant="body2" className={classes.heroBody}>
-          {heroSubtitle}
-        </Typography>
+        {heroHighlightedTitle && (
+          <Typography variant="h2" className={classes.heroHighlightedTitle}>
+            {heroHighlightedTitle}
+          </Typography>
+        )}
+        {heroSubtitle && (
+          <Typography variant="body2" className={classes.heroBody}>
+            {heroSubtitle}
+          </Typography>
+        )}
       </Grid>
-      <HeroBg
-        className={
-          heroBgOrientation === "right" ? classes.heroBgRight : classes.heroBg
-        }
-      />
+      {HeroBg && (
+        <HeroBg
+          className={
+            heroBgOrientation === "right" ? classes.heroBgRight : classes.heroBg
+          }
+        />
+      )}
     </>
   );
 };

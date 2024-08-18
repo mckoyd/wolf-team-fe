@@ -28,7 +28,13 @@ export interface ICardDataResponse {
 export interface IHeroSection {
   heroTitle: string;
   heroTitleSpan?: string;
-  heroSubtitle: string;
-  HeroBg: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  heroSubtitle?: string;
+  HeroBg?: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
   heroBgOrientation?: string;
+  heroHighlightedTitle?: string;
+}
+
+export interface IQualification {
+  Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
+  description: string;
 }

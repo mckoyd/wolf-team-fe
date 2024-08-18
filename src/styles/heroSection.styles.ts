@@ -14,6 +14,12 @@ export const useHeroSectionStyles = tss.create(({ theme }) => ({
   heroTitleSpan: {
     color: theme.palette.common.lightCoral,
   },
+  heroHighlightedTitle: {
+    color: theme.palette.common.lightCoral,
+    textAlign: "center",
+    fontSize: "2em",
+    padding: "0 1em",
+  },
   heroBody: {
     color: theme.palette.common.white,
     textAlign: "center",
